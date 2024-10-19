@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:meditation_app/utils/app_color.dart';
 import 'package:meditation_app/views/welcome/startup_screen.dart';
 
 class MeditationApp extends StatelessWidget {
@@ -14,6 +13,7 @@ class MeditationApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: false,
         fontFamily: 'HelveticaNeue',
+        scaffoldBackgroundColor: Colors.white,
       ),
       home: const StartupScreen(),
     );

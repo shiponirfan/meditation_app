@@ -16,27 +16,24 @@ class AppRoundedBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: MaterialButton(
-        onPressed: onPressed,
-        minWidth: double.maxFinite,
-        height: 60,
-        color: type == AppRoundedBtnType.primary
-            ? AppColor.primary
-            : AppColor.ternary,
-        elevation: 0,
-        highlightElevation: 0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-        child: Text(
-          title,
-          style: TextStyle(
-              color: type == AppRoundedBtnType.primary
-                  ? AppColor.whiteText
-                  : AppColor.primaryText,
-              fontSize: 14,
-              fontWeight: FontWeight.w600),
-        ),
+    return MaterialButton(
+      onPressed: onPressed,
+      minWidth: double.maxFinite,
+      height: 60,
+      color: type == AppRoundedBtnType.primary
+          ? AppColor.primary
+          : AppColor.ternary,
+      elevation: 0,
+      highlightElevation: 0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+      child: Text(
+        title,
+        style: TextStyle(
+            color: type == AppRoundedBtnType.primary
+                ? AppColor.whiteText
+                : AppColor.primaryText,
+            fontSize: 14,
+            fontWeight: FontWeight.w600),
       ),
     );
   }
