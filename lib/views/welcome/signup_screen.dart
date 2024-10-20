@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meditation_app/utils/app_color.dart';
+import 'package:meditation_app/utils/app_extension.dart';
+import 'package:meditation_app/views/home/choose_topic_screen.dart';
 import 'package:meditation_app/widget/app_fb_google_login.dart';
 import 'package:meditation_app/widget/app_rounded_btn.dart';
 import 'package:meditation_app/widget/app_rounded_input_field.dart';
@@ -57,7 +59,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   AppRoundedBtn(
                     title: 'GET STARTED',
                     type: AppRoundedBtnType.primary,
-                    onPressed: () {},
+                    onPressed: _onTapNavigationBtn,
                   ),
                 ],
               ),
@@ -102,5 +104,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),
       ],
     );
+  }
+
+  void _onTapNavigationBtn() {
+    context.push(const ChooseTopicScreen());
   }
 }
