@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:meditation_app/utils/app_color.dart';
 import 'package:meditation_app/utils/app_extension.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:meditation_app/views/home/reminders_screen.dart';
 
 class ChooseTopicScreen extends StatefulWidget {
   const ChooseTopicScreen({super.key});
@@ -117,49 +118,52 @@ class _ChooseTopicScreenState extends State<ChooseTopicScreen> {
                         ? context.width * 0.55
                         : context.width * 0.45;
                     Map<String, String> topic = topicData[index];
-                    return Container(
-                      height: height,
-                      decoration: BoxDecoration(
-                        color: HexColor.formHex(topic['bg-color']!),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Stack(
-                        alignment: Alignment.topCenter,
-                        children: [
-                          ClipRRect(
-                            borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(10),
-                                topRight: Radius.circular(10)),
-                            child: Image.asset(
-                              topic['image']!,
-                              fit: BoxFit.fitWidth,
-                              width: double.maxFinite,
+                    return InkWell(
+                      onTap: _onTapNavigateNextPage,
+                      child: Container(
+                        height: height,
+                        decoration: BoxDecoration(
+                          color: HexColor.formHex(topic['bg-color']!),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Stack(
+                          alignment: Alignment.topCenter,
+                          children: [
+                            ClipRRect(
+                              borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  topRight: Radius.circular(10)),
+                              child: Image.asset(
+                                topic['image']!,
+                                fit: BoxFit.fitWidth,
+                                width: double.maxFinite,
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(15),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Row(
-                                  children: [
-                                    Expanded(
-                                      child: Text(
-                                        topic['title']!,
-                                        style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w700,
-                                          color: HexColor.formHex(
-                                              topic['text-color']!),
+                            Padding(
+                              padding: const EdgeInsets.all(15),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          topic['title']!,
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w700,
+                                            color: HexColor.formHex(
+                                                topic['text-color']!),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     );
                   },
@@ -208,5 +212,9 @@ class _ChooseTopicScreenState extends State<ChooseTopicScreen> {
         ),
       ],
     );
+  }
+
+  void _onTapNavigateNextPage() {
+    context.push(const RemindersScreen());
   }
 }
