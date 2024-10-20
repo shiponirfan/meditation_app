@@ -7,5 +7,6 @@ class AppColor {
   static Color inputBg = const Color(0xffF2F3F7);
   static Color primaryText = const Color(0xff3F414E);
   static Color secondaryText = const Color(0xffA1A4B2);
+  static Color ternaryText = const Color(0xffFFECCC);
   static Color whiteText = const Color(0xffF6F1FB);
 }

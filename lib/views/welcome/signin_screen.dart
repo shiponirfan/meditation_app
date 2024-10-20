@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meditation_app/utils/app_color.dart';
 import 'package:meditation_app/utils/app_extension.dart';
+import 'package:meditation_app/views/home/welcome_screen.dart';
 import 'package:meditation_app/views/welcome/signup_screen.dart';
 import 'package:meditation_app/widget/app_fb_google_login.dart';
 import 'package:meditation_app/widget/app_rounded_btn.dart';
@@ -49,7 +50,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   AppRoundedBtn(
                     title: 'LOG IN',
                     type: AppRoundedBtnType.primary,
-                    onPressed: () {},
+                    onPressed: _onTapNavigateNextPage,
                   ),
                   const SizedBox(
                     height: 20,
@@ -101,5 +102,9 @@ class _SignInScreenState extends State<SignInScreen> {
 
   void _onTapSignUpBtn() {
     context.push(const SignUpScreen());
+  }
+
+  void _onTapNavigateNextPage() {
+    context.push(const WelcomeScreen());
   }
 }
