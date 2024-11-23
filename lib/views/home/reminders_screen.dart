@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meditation_app/utils/app_color.dart';
 import 'package:meditation_app/utils/app_extension.dart';
+import 'package:meditation_app/views/home/home_screen.dart';
 import 'package:meditation_app/widget/app_circle_btn.dart';
 import 'package:meditation_app/widget/app_rounded_btn.dart';
 
@@ -101,7 +102,9 @@ class _RemindersScreenState extends State<RemindersScreen> {
               AppRoundedBtn(
                 title: 'SAVE',
                 type: AppRoundedBtnType.primary,
-                onPressed: () {},
+                onPressed: () {
+                  context.push(const HomeScreen());
+                },
               ),
               TextButton(
                 onPressed: () {
