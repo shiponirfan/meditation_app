@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meditation_app/utils/app_color.dart';
 import 'package:meditation_app/utils/app_extension.dart';
+import 'package:meditation_app/views/course_details/course_details.dart';
 import 'package:meditation_app/widget/recommended_card.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,6 +13,18 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<Map> recommendedList = [
+    {
+      'image': 'assets/images/home/focus.png',
+      'title': 'Focus',
+      'subTitle': 'MEDITATION',
+      'time': '3-10 MIN',
+    },
+    {
+      'image': 'assets/images/home/happiness.png',
+      'title': 'Happiness',
+      'subTitle': 'MEDITATION',
+      'time': '3-10 MIN',
+    },
     {
       'image': 'assets/images/home/focus.png',
       'title': 'Focus',
@@ -104,22 +117,27 @@ class _HomeScreenState extends State<HomeScreen> {
                                     fontSize: 11,
                                   ),
                                 ),
-                                Container(
-                                  width: 70,
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 10),
-                                  decoration: BoxDecoration(
-                                      color: AppColor.whiteText,
-                                      borderRadius: const BorderRadius.all(
-                                          Radius.circular(25))),
-                                  child: Text(
-                                    'START',
-                                    style: TextStyle(
-                                      color: AppColor.primaryText,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 12,
+                                InkWell(
+                                  onTap: () {
+                                    context.push(const CourseDetails());
+                                  },
+                                  child: Container(
+                                    width: 70,
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 10),
+                                    decoration: BoxDecoration(
+                                        color: AppColor.whiteText,
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.circular(25))),
+                                    child: Text(
+                                      'START',
+                                      style: TextStyle(
+                                        color: AppColor.primaryText,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 12,
+                                      ),
+                                      textAlign: TextAlign.center,
                                     ),
-                                    textAlign: TextAlign.center,
                                   ),
                                 )
                               ],
@@ -192,22 +210,27 @@ class _HomeScreenState extends State<HomeScreen> {
                                     fontSize: 11,
                                   ),
                                 ),
-                                Container(
-                                  width: 70,
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 10),
-                                  decoration: BoxDecoration(
-                                      color: AppColor.primaryText,
-                                      borderRadius: const BorderRadius.all(
-                                          Radius.circular(25))),
-                                  child: Text(
-                                    'START',
-                                    style: TextStyle(
-                                      color: AppColor.whiteText,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 12,
+                                InkWell(
+                                  onTap: () {
+                                    context.push(const CourseDetails());
+                                  },
+                                  child: Container(
+                                    width: 70,
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 10),
+                                    decoration: BoxDecoration(
+                                        color: AppColor.primaryText,
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.circular(25))),
+                                    child: Text(
+                                      'START',
+                                      style: TextStyle(
+                                        color: AppColor.whiteText,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 12,
+                                      ),
+                                      textAlign: TextAlign.center,
                                     ),
-                                    textAlign: TextAlign.center,
                                   ),
                                 )
                               ],
@@ -274,7 +297,7 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 30,
             ),
             Text(
-              'Recomended for you',
+              'Recommended for you',
               style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 24,
@@ -286,6 +309,7 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: context.height * 0.35 * 0.7 + 40 + 40,
               child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     Map data = recommendedList[index];
                     return RecommendedCard(
@@ -295,7 +319,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         time: data['time']);
                   },
                   separatorBuilder: (context, index) {
-                    return SizedBox(
+                    return const SizedBox(
                       width: 20,
                     );
                   },

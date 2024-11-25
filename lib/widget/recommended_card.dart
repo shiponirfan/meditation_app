@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:meditation_app/utils/app_color.dart';
-import 'package:meditation_app/utils/app_extension.dart';
 
 class RecommendedCard extends StatelessWidget {
   const RecommendedCard(
@@ -18,14 +17,14 @@ class RecommendedCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ClipRRect(
-          child: Image.asset(
-            image,
-            width: context.width,
-            fit: BoxFit.fitWidth,
-          ),
+        Image.asset(
+          image,
+          height: 114,
+          fit: BoxFit.fitWidth,
         ),
+        SizedBox(height: 10,),
         Text(
           title,
           style: TextStyle(
@@ -50,9 +49,9 @@ class RecommendedCard extends StatelessWidget {
             Container(
               width: 5,
               height: 5,
-              margin: const EdgeInsets.symmetric(horizontal: 4),
+              margin: const EdgeInsets.symmetric(horizontal: 6),
               decoration: BoxDecoration(
-                  color: AppColor.primaryText,
+                  color: AppColor.secondaryText,
                   borderRadius: BorderRadius.circular(100)),
             ),
             Text(

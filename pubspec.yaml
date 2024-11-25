@@ -29,6 +29,8 @@ flutter:
      - assets/images/
      - assets/images/topic/
      - assets/images/home/
+     - assets/images/navbar/
+     - assets/images/course/
 
   fonts:
      - family: HelveticaNeue
