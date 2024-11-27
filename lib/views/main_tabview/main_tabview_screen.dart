@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meditation_app/views/home/home_screen.dart';
+import 'package:meditation_app/views/meditate/meditate_screen.dart';
 import 'package:meditation_app/widget/bottom_navbar_button.dart';
 
 class MainTabviewScreen extends StatefulWidget {
@@ -32,9 +33,7 @@ class _MainTabviewScreenState extends State<MainTabviewScreen>
         Container(
           color: Colors.amber,
         ),
-        Container(
-          color: Colors.red,
-        ),
+        const MeditateScreen(),
         Container(
           color: Colors.green,
         ),
