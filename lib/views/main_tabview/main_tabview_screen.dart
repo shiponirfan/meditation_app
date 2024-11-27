@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:meditation_app/utils/app_color.dart';
 import 'package:meditation_app/views/home/home_screen.dart';
 import 'package:meditation_app/views/meditate/meditate_screen.dart';
+import 'package:meditation_app/views/music/music_screen.dart';
+import 'package:meditation_app/views/sleep/sleep_screen.dart';
 import 'package:meditation_app/widget/bottom_navbar_button.dart';
 
 class MainTabviewScreen extends StatefulWidget {
@@ -30,13 +33,9 @@ class _MainTabviewScreenState extends State<MainTabviewScreen>
     return Scaffold(
       body: TabBarView(controller: controller, children: [
         const HomeScreen(),
-        Container(
-          color: Colors.amber,
-        ),
+        const SleepScreen(),
         const MeditateScreen(),
-        Container(
-          color: Colors.green,
-        ),
+        const MusicScreen(),
         Container(
           color: Colors.yellow,
         ),
@@ -44,10 +43,16 @@ class _MainTabviewScreenState extends State<MainTabviewScreen>
       bottomNavigationBar: SafeArea(
         child: Container(
           padding: const EdgeInsets.only(top: 16, bottom: 8),
-          decoration: const BoxDecoration(color: Colors.white, boxShadow: [
-            BoxShadow(
-                color: Colors.black12, blurRadius: 4, offset: Offset(0, -2)),
-          ]),
+          decoration: BoxDecoration(
+              color: selectedTab == 1 || selectedTab == 3
+                  ? AppColor.sleepBg
+                  : Colors.white,
+              boxShadow: const [
+                BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 4,
+                    offset: Offset(0, -2)),
+              ]),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

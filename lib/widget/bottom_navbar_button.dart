@@ -25,7 +25,7 @@ class BottomNavbarButton extends StatelessWidget {
             width: 46,
             height: 46,
             decoration: BoxDecoration(
-              color: isSelected ? AppColor.primary : Colors.white,
+              color: isSelected ? AppColor.primary : Colors.transparent,
               borderRadius: const BorderRadius.all(Radius.circular(18)),
             ),
             alignment: Alignment.center,

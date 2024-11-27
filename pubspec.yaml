@@ -32,6 +32,7 @@ flutter:
      - assets/images/navbar/
      - assets/images/course/
      - assets/images/meditate/
+     - assets/images/sleep/
 
   fonts:
      - family: HelveticaNeue
