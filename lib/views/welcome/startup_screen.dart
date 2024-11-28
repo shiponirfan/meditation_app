@@ -20,6 +20,9 @@ class _StartupScreenState extends State<StartupScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
+            const SizedBox(
+              height: 20,
+            ),
             Image.asset(
               'assets/images/startup_bg.png',
               width: double.maxFinite,
